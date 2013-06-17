@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="center hero-unit">
+		<% if user_signed_in? %>
+		<h1>Welcome back to Basic CRM!</h1>
+		<p class="welcomep">
+			Click the button below to head to your Customer List! Thanks for using Basic CRM!
+		</p>
+		<%= link_to "My Customers", customers_path, class: "btn btn-primary btn-large" %>
+		<% else %>
+		<h1>Welcome to Basic CRM</h1>
+		<p class="welcomep">
+			The Client Relationship Management tool created to immediately improve your interactions with clients. Get started today by clicking the button below.
+		</p>
+		<p>
+		<%= link_to "Get Started Now", new_user_registration_path, class: "btn btn-primary btn-large" %>
+		</p>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span4">
+		<h2>Box Number 1</h2>
+		<p>
+			Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+		</p>
+		<p><%= link_to "Click me", '#', class: "btn btn-primary" %></p>
+	</div><!-- .span4 -->
+
+	<div class="span4">
+		<h2>Box Number 2</h2>
+		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+		</p>
+		<p><%= link_to "Click me", '#', class: "btn btn-primary" %>
+	</div>
+
+	<div class="span4">
+		<h2>Box Number 3</h2>
+		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+		</p>
+		<p><%= link_to "Click me", '#', class: "btn btn-primary" %>
+	</div>
+	</div>
+</div>
+

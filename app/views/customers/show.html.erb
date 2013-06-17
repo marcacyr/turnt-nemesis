@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+<h2><%= @customer.company %></h2>
+<address>
+  <%= @customer.address %><br>
+  <%= @customer.city %>&nbsp;<%= @customer.state %>&nbsp;<%= @customer.zip %>
+</address>
+
+<p>
+  <b>Location:</b>
+  <%= @customer.location %>
+</p>
+
+<p>
+  <b>Primary contact person:</b>
+  <%= @customer.primary_contact_person %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= mail_to '#', @customer.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Return to Customer List', customers_path %>
+
+
+</div>
