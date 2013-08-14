@@ -9,6 +9,7 @@ gem 'aws_sdk'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'contact_us', '~> 0.4.0'
+gem 'haml'
 
 
 group :production do
@@ -17,6 +18,8 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
+	gem 'guard'
+	gem 'guard-livereload'
 end
 
 
