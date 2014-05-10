@@ -31,3 +31,5 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem "bootstrap-sass", "~> 2.3.1.3"
 end
+
+ruby '2.0.0'
