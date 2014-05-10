@@ -101,6 +101,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.23)
     multi_json (1.7.6)
+    newrelic_rpm (3.8.0.218)
     orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -192,6 +193,7 @@ DEPENDENCIES
   haml
   haml-rails
   jquery-rails
+  newrelic_rpm
   paperclip (~> 3.0)
   pg
   rails (= 3.2.12)

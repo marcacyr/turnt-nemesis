@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate'
 gem 'contact_us', '~> 0.4.0'
 gem 'haml'
 gem 'haml-rails'
+gem 'newrelic_rpm'
 
 
 group :production do
