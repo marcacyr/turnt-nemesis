@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614185615) do
-
-  create_table "comments", :force => true do |t|
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20140510213508) do
 
   create_table "customers", :force => true do |t|
     t.string   "company"
@@ -35,6 +29,11 @@ ActiveRecord::Schema.define(:version => 20130614185615) do
   end
 
   add_index "customers", ["user_id"], :name => "index_customers_on_user_id"
+
+  create_table "teams", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

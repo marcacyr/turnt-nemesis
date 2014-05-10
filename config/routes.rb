@@ -1,4 +1,7 @@
 Crmbasic::Application.routes.draw do
+  resources :teams
+
+
   resources :customers
 
 

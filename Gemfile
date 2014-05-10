@@ -10,6 +10,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'contact_us', '~> 0.4.0'
 gem 'haml'
+gem 'haml-rails'
 
 
 group :production do
