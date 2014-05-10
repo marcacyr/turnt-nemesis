@@ -15,7 +15,7 @@
               %li= link_to 'Teams', teams_path
               %li= link_to 'My Customers', customers_path
               %li= link_to 'My Account', edit_user_registration_path
-              %li= link_to 'Logout', destroy_user_session_path, method: :delete
+              %li= link_to 'Sign out', destroy_user_session_path, method: :delete
             - else
-              %li= link_to 'Login',  new_user_session_path
+              %li= link_to 'Sign in',  new_user_session_path
 
