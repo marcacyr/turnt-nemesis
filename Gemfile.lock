@@ -76,6 +76,11 @@ GEM
       multi_json (~> 1.7)
     haml (4.0.3)
       tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
@@ -180,6 +185,7 @@ DEPENDENCIES
   guard
   guard-livereload
   haml
+  haml-rails
   jquery-rails
   paperclip (~> 3.0)
   pg
