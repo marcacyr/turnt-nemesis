@@ -5,7 +5,9 @@
       %p.welcomep Click the button below to head to your Customer List! Thanks for using Basic CRM!
       = link_to "My Customers", customers_path, :class => "btn btn-primary btn-large"
     - else
-      %h1 Welcome to Gabstr CRM
-      %p.welcomep The Client Relationship Management tool created to immediately improve your interactions with clients. Get started today by clicking the button below.
-      %p
-      = link_to "Get started now", new_user_registration_path, :class => "btn btn-primary btn-large"
+      %span-4
+        = image_tag("gabstr-logo.png")
+      / %h1 Welcome to Gabstr CRM
+      / %p.welcomep The Client Relationship Management tool created to immediately improve your interactions with clients. Get started today by clicking the button below.
+      / %p
+      / = link_to "Get started now", new_user_registration_path, :class => "btn btn-primary btn-large"
