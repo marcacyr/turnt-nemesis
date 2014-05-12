@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+    @customer = current_user.customers.new
 
     respond_to do |format|
       format.html # index.html.erb

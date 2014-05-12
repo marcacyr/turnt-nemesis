@@ -1,25 +1,47 @@
-%h1 Customers
+.container-fluid
+  .row-fluid
+    %h1 Customers
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th Company
-      %th Location
-      %th Primary contact person
-      %th
-      %th
-      %th
-
-  %tbody
-    - @customers.each do |customer|
-      - if current_user == customer.user
+    %table.table.table-striped
+      %thead
         %tr
-          %td= customer.company
-          %td= customer.location
-          %td= customer.primary_contact_person
-          %td= link_to "Show", customer
+          %th Company
+          %th Location
+          %th Primary contact person
+          %th
+          %th
+          %th
+
+      %tbody
+        - @customers.each do |customer|
           - if current_user == customer.user
-            %td= link_to "Edit", edit_customer_path(customer)
-            %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
-%br
-= link_to 'New Customer', new_customer_path, class: "btn btn-primary"
+            %tr
+              %td= customer.company
+              %td= customer.location
+              %td= customer.primary_contact_person
+              %td= link_to "Show", customer
+              - if current_user == customer.user
+                %td= link_to "Edit", edit_customer_path(customer)
+                %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
+    %br
+    = link_to 'New Customer', "#newCustomerModal", class: "btn btn-primary", "data-toggle" => "modal"
+    %br
+    %br
+    #newCustomerModal.modal.hide.fade
+      .modal-header
+        %button.close{"data-dismiss" => "modal", "aria-hidden" => "true"}
+          x
+        %h3 Add new customer
+        %br
+        = minimal_form_for(@customer) do |f|
+          .form-inputs
+            = f.input :company
+            = f.input :address
+            = f.input :city
+            = f.input :state
+            = f.input :zip
+            = f.input :primary_contact_person
+            = f.input :phone
+            = f.input :email
+
+            = f.button :submit, class: "btn btn-primary"

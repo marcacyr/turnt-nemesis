@@ -1,0 +1,27 @@
+%p#notice= notice
+.hero-unit
+  %h2= @customer.company
+  %adress
+    = @customer.address
+    %br
+    = @customer.city + ", " + @customer.state + " " + @customer.zip
+
+  %p
+    %b Location:
+    = @customer.location
+
+  %p
+    %b Primary contact person:
+    = @customer.primary_contact_person
+
+  %p
+    %b Phone:
+    = @customer.phone
+
+  %p
+    %b Email:
+    = mail_to '#', @customer.email
+
+  = link_to 'Edit', edit_customer_path(@customer)
+  \|
+  = link_to 'Return to Customer List', customers_path
