@@ -1,0 +1,21 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Company
+      %th Location
+      %th Primary contact person
+      %th
+      %th
+      %th
+
+  %tbody
+    - @customers.each do |customer|
+      - if current_user == customer.user
+        %tr
+          %td= customer.company
+          %td= customer.location
+          %td= customer.primary_contact_person
+          %td= link_to "Show", customer
+          - if current_user == customer.user
+            %td= link_to "Edit", edit_customer_path(customer)
+            %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
