@@ -165,7 +165,7 @@ GEM
       rspec-mocks (= 3.0.0.rc1)
       rspec-support (= 3.0.0.rc1)
     rspec-support (3.0.0.rc1)
-    sass (3.3.7)
+    sass (3.2.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -217,6 +217,7 @@ DEPENDENCIES
   rails (= 3.2.18)
   rails_12factor
   rspec-rails (~> 3.0.0.beta)
+  sass (= 3.2.13)
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
