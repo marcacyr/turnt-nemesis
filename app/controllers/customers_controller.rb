@@ -1,9 +1,8 @@
 class CustomersController < ApplicationController
   before_filter :authenticate_user!
-  # GET /customers
-  # GET /customers.json
+
   def index
-    @customers = Customer.all
+    @customers = Customer.where(user_id: current_user.id)
     @customer = current_user.customers.new
 
     respond_to do |format|
@@ -12,8 +11,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1
-  # GET /customers/1.json
   def show
     @customer = Customer.find(params[:id])
 
@@ -23,8 +20,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/new
-  # GET /customers/new.json
   def new
     @customer = current_user.customers.new
 
@@ -34,20 +29,16 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1/edit
   def edit
     @customer = current_user.customers.find(params[:id])
   end
 
-  # POST /customers
-  # POST /customers.json
   def create
     @customer = current_user.customers.new(params[:customer])
 
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render json: @customer, status: :created, location: @customer }
       else
         format.html { render action: "new" }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
@@ -55,8 +46,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # PUT /customers/1
-  # PUT /customers/1.json
   def update
     @customer = current_user.customers.find(params[:id])
 
@@ -71,8 +60,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.json
   def destroy
     @customer = current_user.customers.find(params[:id])
     @customer.destroy
