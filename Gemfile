@@ -20,7 +20,6 @@ group :production do
 end
 
 group :development do
-  gem 'thin'
   gem 'pry'
 end
 
