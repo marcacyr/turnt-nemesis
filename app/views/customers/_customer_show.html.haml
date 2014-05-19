@@ -5,21 +5,19 @@
     = @customer.address
     %br
     = @customer.city + ", " + @customer.state + " " + @customer.zip
+  %br
   %p
-    %b Location:
-    = @customer.location
-  %p
-    %b Primary contact person:
-    = @customer.primary_contact_person
-  %p
-    %b Phone:
-    = @customer.phone
-  %p
-    %b Email:
-    = mail_to '#', @customer.email
+    %small Primary contact person:
+    %small= @customer.primary_contact_person
+    %br
+    %small Phone:
+    %small= number_to_phone(@customer.phone)
+    %br
+    %small Email:
+    %small= mail_to '#', @customer.email
   %p
     %b Created by:
-    =@customer.user.name
+    = @customer.user.name
 
   = link_to 'Edit', edit_customer_path(@customer)
   \|

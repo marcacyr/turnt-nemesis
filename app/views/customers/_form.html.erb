@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :company %>
+    <%= f.input :company_name %>
     <%= f.input :address %>
     <%= f.input :city %>
     <%= f.input :state %>
@@ -11,6 +11,10 @@
     <%= f.input :primary_contact_person %>
     <%= f.input :phone %>
     <%= f.input :email %>
+    <%= f.input :facebook %>
+    <%= f.input :twitter_handle %>
+    <%= f.input :gabstr_handle %>
+    <%= f.input :notes, :input_html => {:rows => 7} %>
   </div>
 
   <div class="form-actions">

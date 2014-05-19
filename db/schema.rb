@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140510213508) do
+ActiveRecord::Schema.define(:version => 20140519053709) do
 
   create_table "customers", :force => true do |t|
-    t.string   "company"
+    t.string   "company_name"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -23,9 +23,13 @@ ActiveRecord::Schema.define(:version => 20140510213508) do
     t.string   "primary_contact_person"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "user_id"
+    t.string   "facebook"
+    t.string   "twitter_handle"
+    t.text     "notes",                  :limit => 255
+    t.string   "gabstr_handle"
   end
 
   add_index "customers", ["user_id"], :name => "index_customers_on_user_id"
