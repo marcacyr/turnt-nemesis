@@ -1,9 +1,9 @@
 Crmbasic::Application.routes.draw do
   resources :teams
 
-
   resources :customers
 
+  resources :unvisited_customers
 
   devise_for :users
 

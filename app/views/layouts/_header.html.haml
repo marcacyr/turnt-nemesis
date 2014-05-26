@@ -12,7 +12,8 @@
           %ul.nav
           %ul.nav.pull-right
             - if user_signed_in?
-              %li= link_to 'Teams', teams_path
+              - if current_user.admin?
+                %li= link_to 'Teams', teams_path
               %li= link_to 'My Customers', customers_path
               %li= link_to 'My Account', edit_user_registration_path
               %li= link_to 'Sign out', destroy_user_session_path, method: :delete

@@ -16,6 +16,12 @@
     %small Email:
     %small= mail_to '#', @customer.email
   %p
+    %b Visited:
+    - if @customer.visited
+      Yes
+    - else
+      No
+  %p
     %b Created by:
     = @customer.user.name
 

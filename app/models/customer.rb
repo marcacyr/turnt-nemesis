@@ -9,24 +9,7 @@ class Customer < ActiveRecord::Base
   validates :user_id, presence: true
   validates :company_name, uniqueness: true
 
-  after_save :check_if_visited
   after_create :customer_create_log
-
-  def check_if_visited
-    if !self.visited?
-      if UnvisitedCustomer.where(customer_id: self.id).empty?
-        UnvisitedCustomer.create!(customer_id: self.id)
-      end
-    elsif self.visited?
-      if !UnvisitedCustomer.where(customer_id: self.id).empty?
-        UnvisitedCustomer.all.each do |u|
-          if u.customer_id == self.id
-            u.destroy
-          end
-        end
-      end
-    end
-  end
 
   def customer_create_log
     CustomerCreationLog.create!(user_id: self.user_id)

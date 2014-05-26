@@ -1,0 +1,22 @@
+.container-fluid
+  .row-fluid
+    %h1 Unvisited Customers
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Company
+          %th Location
+          %th Primary contact person
+          %th
+          %th
+
+      %tbody
+        - @unvisited_customers.each do |unvisited_customer|
+          -# binding.pry
+          %tr
+            %td= link_to unvisited_customer.company_name, customer_path(unvisited_customer)
+            %td= unvisited_customer.location
+            %td= unvisited_customer.primary_contact_person
+            %td=# link_to "Edit", edit_customer_path(customer)
+            %td=# link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
