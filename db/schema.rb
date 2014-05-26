@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140526011627) do
+ActiveRecord::Schema.define(:version => 20140526012919) do
 
   create_table "customers", :force => true do |t|
     t.string   "company_name"
@@ -23,13 +23,14 @@ ActiveRecord::Schema.define(:version => 20140526011627) do
     t.string   "primary_contact_person"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.integer  "user_id"
     t.string   "facebook"
     t.string   "twitter_handle"
     t.text     "notes",                  :limit => 255
     t.string   "gabstr_handle"
+    t.boolean  "visited",                               :default => false
   end
 
   add_index "customers", ["user_id"], :name => "index_customers_on_user_id"
