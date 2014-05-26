@@ -10,6 +10,7 @@ class Customer < ActiveRecord::Base
   validates :company_name, uniqueness: true
 
   after_save :check_if_visited
+  after_create :customer_create_log
 
   def check_if_visited
     if !self.visited?
@@ -25,5 +26,9 @@ class Customer < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def customer_create_log
+    CustomerCreationLog.create!(user_id: self.user_id)
   end
 end

@@ -22,7 +22,10 @@
                 %td= link_to "Edit", edit_customer_path(customer)
                 %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
     %br
-    = link_to 'New Customer', "#newCustomerModal", class: "btn btn-primary", "data-toggle" => "modal"
+    - if current_user.customer_creation_limit< 50
+      = link_to 'New Customer', "#newCustomerModal", class: "btn btn-primary", "data-toggle" => "modal"
+    - else
+      Your daily customer creation limit has been met. Please continue adding customers tomorrow.
     %br
     %br
     #newCustomerModal.modal.hide.fade
@@ -49,5 +52,6 @@
             = f.input :twitter_handle
             = f.input :gabstr_handle
             = f.input :notes, :input_html => {:rows => 7}
+            = f.input :visited, :label => "Visited"
 
             = f.button :submit, class: "btn btn-primary", :disable_with => "Submitting..."
