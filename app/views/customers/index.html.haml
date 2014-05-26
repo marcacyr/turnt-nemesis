@@ -28,6 +28,7 @@
       Your daily customer creation limit has been met. Please continue adding customers tomorrow.
     %br
     %br
+    = link_to "Click here to see the list of unvisited customers", unvisited_customers_path
     #newCustomerModal.modal.hide.fade
       .modal-header
         %button.close{"data-dismiss" => "modal", "aria-hidden" => "true"}

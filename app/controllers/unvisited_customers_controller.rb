@@ -4,4 +4,8 @@ class UnvisitedCustomersController < ApplicationController
   def index
     @unvisited_customers = Customer.where(visited: false)
   end
+
+  def edit
+    @claim_customer = Customer.find(params[:id])
+  end
 end
