@@ -2,25 +2,28 @@
   .row-fluid
     %h1 Customers
 
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Company
-          %th Location
-          %th Primary contact person
-          %th
-          %th
+    - if @customers.empty?
+      (No customers to show you right now.)
+    - else
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Company
+            %th Location
+            %th Primary contact person
+            %th
+            %th
 
-      %tbody
-        - @customers.each do |customer|
-          - if current_user == customer.user
-            %tr
-              %td= link_to customer.company_name, customer_path(customer)
-              %td= customer.location
-              %td= customer.primary_contact_person
-              - if current_user == customer.user
-                %td= link_to "Edit", edit_customer_path(customer)
-                %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @customers.each do |customer|
+            - if current_user == customer.user
+              %tr
+                %td= link_to customer.company_name, customer_path(customer)
+                %td= customer.location
+                %td= customer.primary_contact_person
+                - if current_user == customer.user
+                  %td= link_to "Edit", edit_customer_path(customer)
+                  %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
     %br
     - if current_user.customer_creation_limit< 50
       = link_to 'New Customer', "#newCustomerModal", class: "btn btn-primary", "data-toggle" => "modal"
