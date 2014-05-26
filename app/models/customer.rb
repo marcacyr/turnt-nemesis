@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-  attr_accessible :address, :city, :company, :email, :location, :phone, :primary_contact_person, :state, :zip
+  attr_accessible :address, :city, :company, :email, :location, :phone, :primary_contact_person, :state, :zip, :visited
 
   belongs_to :user
 
