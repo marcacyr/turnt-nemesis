@@ -2,20 +2,23 @@
   .row-fluid
     %h1 Unvisited Customers
 
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Company
-          %th Location
-          %th Primary contact person
-
-      %tbody
-        - @unvisited_customers.each do |unvisited_customer|
-          -# binding.pry
+    - if @unvisited_customers.empty?
+      (No unvisited customers to show you right now.)
+    - else
+      %table.table.table-striped
+        %thead
           %tr
-            %td= link_to unvisited_customer.company_name, customer_path(unvisited_customer)
-            %td= unvisited_customer.location
-            %td= unvisited_customer.primary_contact_person
+            %th Company
+            %th Location
+            %th Primary contact person
+
+        %tbody
+          - @unvisited_customers.each do |unvisited_customer|
+            -# binding.pry
+            %tr
+              %td= link_to unvisited_customer.company_name, customer_path(unvisited_customer)
+              %td= unvisited_customer.location
+              %td= unvisited_customer.primary_contact_person
     %br
     %br
     = link_to "Back", customers_path
