@@ -7,7 +7,10 @@ Crmbasic::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'pages#home'
+  authenticated :user do
+    root :to => 'pages#home', :as => :authenticated_root
+  end
+  root :to => redirect('/users/sign_in')
 
   get 'about' => 'pages#about'
 
