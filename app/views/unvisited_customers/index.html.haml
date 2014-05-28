@@ -9,7 +9,6 @@
         %thead
           %tr
             %th Company
-            %th Location
             %th Primary contact person
 
         %tbody
@@ -17,7 +16,6 @@
             -# binding.pry
             %tr
               %td= link_to unvisited_customer.company_name, customer_path(unvisited_customer)
-              %td= unvisited_customer.location
               %td= unvisited_customer.primary_contact_person
     %br
     %br

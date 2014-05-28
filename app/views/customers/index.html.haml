@@ -9,7 +9,6 @@
         %thead
           %tr
             %th Company
-            %th Location
             %th Primary contact person
             %th
             %th
@@ -19,10 +18,10 @@
             - if current_user == customer.user
               %tr
                 %td= link_to customer.company_name, customer_path(customer)
-                %td= customer.location
                 %td= customer.primary_contact_person
-                - if current_user == customer.user
+                - if current_user == customer.user || curent_user.admin
                   %td= link_to "Edit", edit_customer_path(customer)
+                - if current_user.admin
                   %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
     %br
     - if current_user.customer_creation_limit< 50
