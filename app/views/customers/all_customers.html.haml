@@ -1,0 +1,27 @@
+.container-fluid
+  .row-fluid
+    %h1 Customers
+
+    - if @customers.empty?
+      (No customers to show you right now.)
+    - else
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Company
+            %th Primary contact person
+            %th Created By
+            %th
+            %th
+
+        %tbody
+          - @customers.each do |customer|
+            - if current_user == customer.user
+              %tr
+                %td= link_to customer.company_name, customer_path(customer)
+                %td= customer.primary_contact_person
+                %td= customer.user.name
+                - if current_user == customer.user || curent_user.admin
+                  %td= link_to "Edit", edit_customer_path(customer)
+                - if current_user.admin
+                  %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }

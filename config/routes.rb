@@ -7,6 +7,8 @@ Crmbasic::Application.routes.draw do
 
   devise_for :users
 
+  get 'all_customers' => 'customers#all_customers'
+
   authenticated :user do
     root :to => 'pages#home', :as => :authenticated_root
   end

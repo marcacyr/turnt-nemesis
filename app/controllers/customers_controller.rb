@@ -11,6 +11,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def all_customers
+    @customers = Customer.all
+  end
+
   def show
     @customer = Customer.find(params[:id])
 
@@ -30,7 +34,11 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = current_user.customers.find(params[:id])
+    if current_user.admin?
+      @customer = Customer.find(params[:id])
+    else
+      @customer = current_user.customers.find(params[:id])
+    end
   end
 
   def create
@@ -61,12 +69,14 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = current_user.customers.find(params[:id])
-    @customer.destroy
+    if current_user.admin?
+      @customer = current_user.customers.find(params[:id])
+      @customer.destroy
 
-    respond_to do |format|
-      format.html { redirect_to customers_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to customers_url }
+        format.json { head :no_content }
+      end
     end
   end
 end

@@ -3,7 +3,10 @@
     - if user_signed_in?
       %h2= "Hi #{current_user.name}, welcome back to Gabstr CRM!"
       %p.welcomep Click the button below to head to your Customer List! Thanks for using Basic CRM!
-      = link_to "My Customers", customers_path, :class => "btn btn-primary btn-large"
+      - if !current_user.admin?
+        = link_to "My Customers", customers_path, :class => "btn btn-primary btn-large"
+      - else
+        = link_to "All Customers", all_customers_path, class: "btn btn-primary btn-large"
     - else
       %span-4
         = image_tag("gabstr-logo.png")
