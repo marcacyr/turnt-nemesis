@@ -2,7 +2,6 @@
   %thead
     %tr
       %th Company
-      %th Location
       %th Primary contact person
       %th
       %th
@@ -13,7 +12,6 @@
       - if current_user == customer.user
         %tr
           %td= customer.company
-          %td= customer.location
           %td= customer.primary_contact_person
           %td= link_to "Show", customer
           - if current_user == customer.user

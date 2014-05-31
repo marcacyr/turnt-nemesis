@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   attr_accessible :address, :city, :company_name, :email,
-  :location, :phone, :primary_contact_person,
+  :phone, :primary_contact_person,
   :state, :zip, :visited, :company_name,
   :facebook, :twitter_handle, :gabstr_handle, :notes
 
