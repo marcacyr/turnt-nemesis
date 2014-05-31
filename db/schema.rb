@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140526063009) do
+ActiveRecord::Schema.define(:version => 20140531170932) do
 
   create_table "customer_creation_logs", :force => true do |t|
     t.integer  "user_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20140526063009) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.string   "location"
     t.string   "primary_contact_person"
     t.string   "phone"
     t.string   "email"

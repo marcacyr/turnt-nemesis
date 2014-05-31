@@ -4,10 +4,10 @@
   .form-inputs
     = f.input :company_name
     = f.input :address
-    = f.input :city
-    = f.input :state
+    = f.input :city, :input_html => { :value => 'San Francisco'}
+    = f.input :state, :input_html => { :value => 'CA'}
     = f.input :zip
-    = f.input :location
+    = f.input :location, input_html: { value: 'USA' }
     = f.input :primary_contact_person
     = f.input :phone
     = f.input :email

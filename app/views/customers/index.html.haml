@@ -45,8 +45,8 @@
           .form-inputs
             = f.input :company_name
             = f.input :address
-            = f.input :city
-            = f.input :state
+            = f.input :city, input_html: { value: 'San Francisco' }, disabled: true
+            = f.input :state, input_html: { value: 'CA' }, disabled: true
             = f.input :zip
             = f.input :primary_contact_person
             = f.input :phone
