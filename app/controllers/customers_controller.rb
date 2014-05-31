@@ -74,7 +74,7 @@ class CustomersController < ApplicationController
       @customer.destroy
 
       respond_to do |format|
-        format.html { redirect_to :back }
+        format.html { redirect_to all_customers_path }
         format.json { head :no_content }
       end
     end
