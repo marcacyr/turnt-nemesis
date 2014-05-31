@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140531170932) do
+ActiveRecord::Schema.define(:version => 20140531192538) do
 
   create_table "customer_creation_logs", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140531170932) do
     t.text     "notes",                  :limit => 255
     t.string   "gabstr_handle"
     t.boolean  "visited",                               :default => false
+    t.boolean  "signed_up"
   end
 
   add_index "customers", ["user_id"], :name => "index_customers_on_user_id"

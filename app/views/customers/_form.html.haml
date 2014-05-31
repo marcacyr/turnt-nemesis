@@ -16,6 +16,8 @@
     = f.input :gabstr_handle
     = f.input :notes, :input_html => {:rows => 7}
     = f.input :visited
+    - if current_user.admin?
+        = f.input :signed_up
 
   .form-actions
     = f.button :submit, class: "btn btn-primary"
