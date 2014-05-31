@@ -1,7 +1,7 @@
 %div.container-fluid
-  %div.center.hero-unit
+  %div.text-center.hero-unit
     - if user_signed_in?
-      %h1 Welcome back to Gabstr CRM!
+      %h2= "Hi #{current_user.name}, Welcome back to Gabstr CRM!"
       %p.welcomep Click the button below to head to your Customer List! Thanks for using Basic CRM!
       = link_to "My Customers", customers_path, :class => "btn btn-primary btn-large"
     - else
