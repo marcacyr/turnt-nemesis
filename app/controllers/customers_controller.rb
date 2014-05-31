@@ -69,14 +69,12 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    if current_user.admin?
-      @customer = current_user.customers.find(params[:id])
-      @customer.destroy
+    @customer = current_user.customers.find(params[:id])
+    @customer.destroy
 
-      respond_to do |format|
-        format.html { redirect_to all_customers_path }
-        format.json { head :no_content }
-      end
+    respond_to do |format|
+      format.html { redirect_to all_customers_path }
+      format.json { head :no_content }
     end
   end
 end
