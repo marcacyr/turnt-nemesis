@@ -20,6 +20,6 @@
               %td= link_to customer.company_name, customer_path(customer)
               %td= customer.primary_contact_person
               %td= customer.user.name
-              - if curent_user.admin?
+              - if current_user.admin?
                 %td= link_to "Edit", edit_customer_path(customer)
                 %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
