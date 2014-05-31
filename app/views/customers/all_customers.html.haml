@@ -22,4 +22,4 @@
               %td= customer.user.name
               - if current_user.admin?
                 %td= link_to "Edit", edit_customer_path(customer)
-                %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
+                %td= link_to "Delete", customer, {:controller => "customers", :action => 'destroy', :id => customer.id}
