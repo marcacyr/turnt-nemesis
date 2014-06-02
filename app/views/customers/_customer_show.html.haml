@@ -3,6 +3,9 @@
   %h2= @customer.company_name
   %adress
     = @customer.address
+    - if !@customer.unit.empty?
+      %br
+      = "Unit ##{@customer.unit}"
     %br
     = @customer.city + ", " + @customer.state + " " + @customer.zip
   %br
@@ -22,9 +25,10 @@
     - else
       No
   %p
-    %b Created by:
+    %b Owner:
     = @customer.user.name
 
-  = link_to 'Edit', edit_customer_path(@customer)
-  \|
+  - if @customer.user == current_user || current_user.admin?
+    = link_to 'Edit', edit_customer_path(@customer)
+    \|
   = link_to 'Return to Customer List', customers_path

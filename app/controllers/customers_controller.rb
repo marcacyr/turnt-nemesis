@@ -12,7 +12,12 @@ class CustomersController < ApplicationController
   end
 
   def all_customers
-    @customers = Customer.all
+    @customers = Customer.order(:company_name)
+
+    respond_to do |format|
+      format.html
+      format.csv { render :text => @customers.to_csv }
+    end
   end
 
   def show
@@ -55,7 +60,7 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = current_user.customers.find(params[:id])
+    @customer = Customer.find(params[:id])
 
     respond_to do |format|
       if @customer.update_attributes(params[:customer])

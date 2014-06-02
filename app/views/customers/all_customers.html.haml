@@ -1,25 +1,43 @@
 .container-fluid
   .row-fluid
-    %h1 Customers
-
-    - if @customers.empty?
-      (No customers to show you right now.)
+    - if !current_user.admin?
+      You don't have permissions to see this content.
+      %br
+      = link_to "Back", root_path
     - else
-      %table.table.table-striped
-        %thead
-          %tr
-            %th Company
-            %th Primary contact person
-            %th Created By
-            %th
-            %th
+      %h1 Customers
 
-        %tbody
-          - @customers.each do |customer|
+      - if @customers.empty?
+        (No customers to show you right now.)
+      - else
+        %table.table.table-striped
+          %thead
             %tr
-              %td= link_to customer.company_name, customer_path(customer)
-              %td= customer.primary_contact_person
-              %td= customer.user.name
-              - if current_user.admin?
-                %td= link_to "Edit", edit_customer_path(customer)
-                %td= link_to "Delete", {:controller => "customers", :action => 'destroy', :id => customer.id}, data: { confirm: 'Are you sure?' }
+              %th Company
+              %th Primary contact person
+              %th Created By
+              %th Signed up
+              %th Created On
+              %th Last Touch
+              %th
+              %th
+
+          %tbody
+            - @customers.each do |customer|
+              %tr
+                %td= link_to customer.company_name, customer_path(customer)
+                %td= customer.primary_contact_person
+                %td= customer.user.name
+                - if customer.signed_up?
+                  %td Yes
+                - else
+                  %td No
+                %td= customer.created_at.to_date.strftime("%m/%d/%Y")
+                %td= customer.updated_at.to_date.strftime("%m/%d/%Y")
+                - if current_user.admin?
+                  %td= link_to "Edit", edit_customer_path(customer)
+                  %td= link_to "Delete", {:controller => "customers", :action => 'destroy', :id => customer.id}, data: { confirm: 'Are you sure?' }
+      %br
+      %br
+      %h4 Download CSV
+      = link_to "CSV", all_customers_path(format: "csv"), class: "btn btn-primary btn-small"
