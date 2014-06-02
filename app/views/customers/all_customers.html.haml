@@ -36,7 +36,7 @@
                 %td= customer.updated_at.to_date.strftime("%m/%d/%Y")
                 - if current_user.admin?
                   %td= link_to "Edit", edit_customer_path(customer)
-                  %td=# link_to "Delete", {:controller => "customers", :action => 'destroy', :id => customer.id}, data: { confirm: 'Are you sure?' }
+                  %td= link_to "Delete", customer, method: :delete, data: { confirm: 'Are you sure?' }
       %br
       %br
       %h4 Download CSV

@@ -74,11 +74,11 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = current_user.customers.find(params[:id])
+    @customer = Customer.find(params[:id])
     @customer.destroy
 
     respond_to do |format|
-      format.html { redirect_to customers_url }
+      format.html { redirect_to :back }
     end
   end
 end
