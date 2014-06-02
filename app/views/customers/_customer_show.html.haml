@@ -19,11 +19,17 @@
     %small Email:
     %small= mail_to '#', @customer.email
   %p
-    %b Visited:
-    - if @customer.visited
-      Yes
+    %small Visited:
+    - if @customer.visited?
+      %small Yes
     - else
-      No
+      %small No
+  %p
+    %small Signed up:
+    - if @customer.signed_up?
+      %small Yes
+    - else
+      %small No
   %p
     %b Owner:
     = @customer.user.name
